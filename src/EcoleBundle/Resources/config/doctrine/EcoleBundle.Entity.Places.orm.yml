@@ -1,0 +1,38 @@
+EcoleBundle\Entity\Places:
+    type: entity
+    table: places
+    indexes:
+        FK_places_id_classe:
+            columns:
+                - id_classe
+        FK_places_id_eleve:
+            columns:
+                - id_eleve
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idEleve:
+            targetEntity: EcoleBundle\Entity\Eleve
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_eleve:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idClasse:
+            targetEntity: EcoleBundle\Entity\Classe
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_classe:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

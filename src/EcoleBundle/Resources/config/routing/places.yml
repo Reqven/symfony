@@ -1,0 +1,24 @@
+places_index:
+    path:     /
+    defaults: { _controller: "EcoleBundle:Places:index" }
+    methods:  GET
+
+places_show:
+    path:     /{id}/show
+    defaults: { _controller: "EcoleBundle:Places:show" }
+    methods:  GET
+
+places_new:
+    path:     /new
+    defaults: { _controller: "EcoleBundle:Places:new" }
+    methods:  [GET, POST]
+
+places_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EcoleBundle:Places:edit" }
+    methods:  [GET, POST]
+
+places_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EcoleBundle:Places:delete" }
+    methods:  DELETE

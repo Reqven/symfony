@@ -1,0 +1,32 @@
+EcoleBundle\Entity\Classe:
+    type: entity
+    table: classe
+    indexes:
+        FK_classe_id_intervenant:
+            columns:
+                - id_intervenant
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+    manyToOne:
+        idIntervenant:
+            targetEntity: EcoleBundle\Entity\Intervenant
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_intervenant:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,15 @@
+app_classe:
+    resource: "@EcoleBundle/Resources/config/routing/classe.yml"
+    prefix:   /classe
+
+app_eleve:
+        resource: "@EcoleBundle/Resources/config/routing/eleve.yml"
+        prefix:   /eleve
+
+app_intervenant:
+        resource: "@EcoleBundle/Resources/config/routing/intervenant.yml"
+        prefix:   /intervenant
+
+app_places:
+        resource: "@EcoleBundle/Resources/config/routing/places.yml"
+        prefix:   /places

@@ -1,0 +1,29 @@
+EcoleBundle\Entity\Intervenant:
+    type: entity
+    table: intervenant
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+        prenom:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+        matiere:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+    lifecycleCallbacks: {  }

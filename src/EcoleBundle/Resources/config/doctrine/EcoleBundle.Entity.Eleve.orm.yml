@@ -1,0 +1,38 @@
+EcoleBundle\Entity\Eleve:
+    type: entity
+    table: eleve
+    indexes:
+        FK_eleve_id_places:
+            columns:
+                - id_places
+    id:
+        id:
+            id: true
+            type: integer
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+        prenom:
+            type: text
+            length: 65535
+            nullable: false
+            options:
+                fixed: ''
+    manyToOne:
+        idPlaces:
+            targetEntity: EcoleBundle\Entity\Places
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_places:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
