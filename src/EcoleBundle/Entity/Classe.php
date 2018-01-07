@@ -2,6 +2,8 @@
 
 namespace EcoleBundle\Entity;
 
+use EcoleBundle\Entity\Places;
+
 /**
  * Classe
  */
@@ -80,5 +82,7 @@ class Classe
     {
         return $this->idIntervenant;
     }
+
+
 }
 

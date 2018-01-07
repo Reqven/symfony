@@ -1,22 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Classe</h1>
+    <h1>{{ classe.nom }}</h1>
+    <p>Id : {{ classe.id }}</p>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ classe.nom }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ classe.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h2>Intervenant</h2>
+    <p>{{ intervenant.nom }}</p>
 
-    <ul>
+    <h2>Eleves</h2>
+    {# for eleve in eleves %}
+        <p>{{ eleve.id }}</p>
+    {% endfor #}
+
+    <h2>Places</h2>
+    <div class="flex-row">
+      {% for place in places %}
+      <div class="place">
+        <p>{{ place.id }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <ul style="list-style-type:none">
         <li>
             <a href="{{ path('classe_index') }}">Back to the list</a>
         </li>

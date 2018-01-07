@@ -3,37 +3,28 @@
 {% block body %}
     <h1>Classes list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for classe in classes %}
-            <tr>
-                <td><a href="{{ path('classe_show', { 'id': classe.id }) }}">{{ classe.nom }}</a></td>
-                <td>{{ classe.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('classe_show', { 'id': classe.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('classe_edit', { 'id': classe.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+          <div class="flex-column">
+            <div class="classe">
+              <h3>Nom</h3>
+              <p><a href="{{ path('classe_show', { 'id': classe.id }) }}">{{ classe.nom }}</a></p>
+              <h3>Id</h3>
+              <p>{{ classe.id }}</p>
+              <ul style="list-style-type:none">
+                  <li>
+                      <a class="btn" href="{{ path('classe_show', { 'id': classe.id }) }}">show</a>
+                  </li>
+                  <li>
+                      <a class="btn" href="{{ path('classe_edit', { 'id': classe.id }) }}">edit</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
         {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
+    <ul style="list-style-type:none">
         <li>
-            <a href="{{ path('classe_new') }}">Create a new classe</a>
+            <a class="btn" href="{{ path('classe_new') }}">Create a new classe</a>
         </li>
     </ul>
 {% endblock %}

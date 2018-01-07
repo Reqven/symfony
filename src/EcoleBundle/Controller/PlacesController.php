@@ -33,7 +33,7 @@ class PlacesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $place = new Place();
+        $place = new Places();
         $form = $this->createForm('EcoleBundle\Form\PlacesType', $place);
         $form->handleRequest($request);
 

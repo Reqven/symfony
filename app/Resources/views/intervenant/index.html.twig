@@ -2,42 +2,36 @@
 
 {% block body %}
     <h1>Intervenants list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Matiere</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="flex-row">
         {% for intervenant in intervenants %}
-            <tr>
-                <td><a href="{{ path('intervenant_show', { 'id': intervenant.id }) }}">{{ intervenant.nom }}</a></td>
-                <td>{{ intervenant.prenom }}</td>
-                <td>{{ intervenant.matiere }}</td>
-                <td>{{ intervenant.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('intervenant_show', { 'id': intervenant.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('intervenant_edit', { 'id': intervenant.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+
+          <div class="classe">
+            <h3>Nom</h3>
+            <p><a href="{{ path('intervenant_show', { 'id': intervenant.id }) }}">{{ intervenant.nom }}</a></p>
+            <h3>Prénom</h3>
+            <p>{{ intervenant.prenom }}</p>
+            <h3>Matière</h3>
+            <p>{{ intervenant.matiere }}</p>
+            <h3>Id</h3>
+            <p>{{ intervenant.id }}</p>
+            <ul style="list-style-type:none">
+                <li>
+                    <a class="btn" href="{{ path('intervenant_show', { 'id': intervenant.id }) }}">show</a>
+                </li>
+                <li>
+                    <a class="btn" href="{{ path('intervenant_edit', { 'id': intervenant.id }) }}">edit</a>
+                </li>
+            </ul>
+          </div>
+
         {% endfor %}
+        </div>
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type:none">
         <li>
-            <a href="{{ path('intervenant_new') }}">Create a new intervenant</a>
+            <a class="btn" href="{{ path('intervenant_new') }}">Create a new intervenant</a>
         </li>
     </ul>
 {% endblock %}

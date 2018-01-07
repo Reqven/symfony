@@ -2,6 +2,7 @@
 
 namespace EcoleBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,13 @@ class PlacesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idEleve')->add('idClasse');
+        $builder
+            ->add('idEleve', EntityType::class, array(
+                'class' => 'EcoleBundle:Eleve',
+                'choice_label' => 'nom'))
+            ->add('idClasse', EntityType::class, array(
+                'class' => 'EcoleBundle:Classe',
+                'choice_label' => 'nom'));
     }/**
      * {@inheritdoc}
      */

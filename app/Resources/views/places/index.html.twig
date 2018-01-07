@@ -2,36 +2,28 @@
 
 {% block body %}
     <h1>Places list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="flex-row">
         {% for place in places %}
-            <tr>
-                <td><a href="{{ path('places_show', { 'id': place.id }) }}">{{ place.id }}</a></td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('places_show', { 'id': place.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('places_edit', { 'id': place.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
+          <div class="classe">
+            <h3>Id</h3>
+            <p><a href="{{ path('places_show', { 'id': place.id }) }}">{{ place.id }}</a></p>
+            <ul style="list-style-type:none">
+                <li>
+                    <a class="btn" href="{{ path('places_show', { 'id': place.id }) }}">show</a>
+                </li>
+                <li>
+                    <a class="btn" href="{{ path('places_edit', { 'id': place.id }) }}">edit</a>
+                </li>
+            </ul>
+          </div>
+
+        {% endfor %}
+    </div>
+
+    <ul style="list-style-type:none">
         <li>
-            <a href="{{ path('places_new') }}">Create a new place</a>
+            <a class="btn" href="{{ path('places_new') }}">Create a new place</a>
         </li>
     </ul>
 {% endblock %}

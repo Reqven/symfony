@@ -1,0 +1,45 @@
+* {
+  text-align: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.place, .classe {
+  padding: 10px;
+  border: 2px solid #000;
+  margin: 10px;
+}
+
+.classe {
+  width: 20%;
+}
+
+.btn {
+  border: 2px solid #00ccff;
+  background-color: #00ccff;
+  color: white;
+  margin: 10px;
+}
