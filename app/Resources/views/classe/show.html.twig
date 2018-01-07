@@ -16,6 +16,19 @@
         </tbody>
     </table>
 
+    <h2>Intervenant</h2>
+    <p>{{ intervenant.nom }}</p>
+
+    <h2>Eleves</h2>
+    {# for eleve in eleves %}
+        <p>{{ eleve.id }}</p>
+    {% endfor #}
+
+    <h2>Places</h2>
+    {% for place in places %}
+        <p>{{ place.id }}</p>
+    {% endfor %}
+
     <ul>
         <li>
             <a href="{{ path('classe_index') }}">Back to the list</a>

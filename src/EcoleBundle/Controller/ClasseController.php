@@ -3,6 +3,7 @@
 namespace EcoleBundle\Controller;
 
 use EcoleBundle\Entity\Classe;
+use EcoleBundle\Entity\Places;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,9 +40,22 @@ class ClasseController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $repo = $em->getRepository('EcoleBundle:Classe');
             $em->persist($classe);
             $em->flush();
 
+            $places = $form->get('places')->getData();
+            $classe = $repo->find($classe->getId());
+
+            while($places != 0) {
+                $place = new Places();
+                $place->setIdClasse($classe);
+    
+                $em->persist($place);
+                $em->flush();
+                $places--;
+            }
+            
             return $this->redirectToRoute('classe_show', array('id' => $classe->getId()));
         }
 
@@ -57,10 +71,15 @@ class ClasseController extends Controller
      */
     public function showAction(Classe $classe)
     {
+        $em = $this->getDoctrine()->getManager();
+        $places = $em->getRepository('EcoleBundle:Places')->findBy(array('idClasse' => $classe->getId()));
+        $intervenant = $classe->getIdIntervenant();
         $deleteForm = $this->createDeleteForm($classe);
 
         return $this->render('classe/show.html.twig', array(
             'classe' => $classe,
+            'places' => $places,
+            'intervenant' => $intervenant,
             'delete_form' => $deleteForm->createView(),
         ));
     }
