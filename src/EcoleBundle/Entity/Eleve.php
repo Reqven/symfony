@@ -110,4 +110,3 @@ class Eleve
         return $this->idPlaces;
     }
 }
-

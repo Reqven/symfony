@@ -16,9 +16,12 @@ class EleveType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom')->add('prenom')
-        ->add('idPlaces', EntityType::class, array(
-            'class' => 'EcoleBundle:Places',
-            'choice_label' => 'idClasse'));
+        ->add('classe', EntityType::class, array(
+            'class' => 'EcoleBundle:Classe',
+            'choice_label' => 'nom',
+            'label' => 'Classe',
+            'required' => true,
+            'mapped' => false));
     }/**
      * {@inheritdoc}
      */

@@ -29,4 +29,15 @@ EcoleBundle\Entity\Classe:
                 id_intervenant:
                     referencedColumnName: id
             orphanRemoval: false
+    OneToMany:
+        idPlaces:
+            targetEntity: EcoleBundle\Entity\Places
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: idClasse
+            inversedBy: null
+            joinColumns:
+                id_places:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }

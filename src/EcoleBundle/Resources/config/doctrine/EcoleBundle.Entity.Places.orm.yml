@@ -30,7 +30,7 @@ EcoleBundle\Entity\Places:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: idPlaces
             joinColumns:
                 id_classe:
                     referencedColumnName: id

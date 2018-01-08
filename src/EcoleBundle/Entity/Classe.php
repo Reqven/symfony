@@ -2,8 +2,6 @@
 
 namespace EcoleBundle\Entity;
 
-use EcoleBundle\Entity\Places;
-
 /**
  * Classe
  */
@@ -20,10 +18,22 @@ class Classe
     private $id;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $idPlaces;
+
+    /**
      * @var \EcoleBundle\Entity\Intervenant
      */
     private $idIntervenant;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idPlaces = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set nom
@@ -60,6 +70,40 @@ class Classe
     }
 
     /**
+     * Add idPlace
+     *
+     * @param \EcoleBundle\Entity\Places $idPlace
+     *
+     * @return Classe
+     */
+    public function addIdPlace(\EcoleBundle\Entity\Places $idPlace)
+    {
+        $this->idPlaces[] = $idPlace;
+
+        return $this;
+    }
+
+    /**
+     * Remove idPlace
+     *
+     * @param \EcoleBundle\Entity\Places $idPlace
+     */
+    public function removeIdPlace(\EcoleBundle\Entity\Places $idPlace)
+    {
+        $this->idPlaces->removeElement($idPlace);
+    }
+
+    /**
+     * Get idPlaces
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdPlaces()
+    {
+        return $this->idPlaces;
+    }
+
+    /**
      * Set idIntervenant
      *
      * @param \EcoleBundle\Entity\Intervenant $idIntervenant
@@ -82,7 +126,5 @@ class Classe
     {
         return $this->idIntervenant;
     }
-
-
 }
 

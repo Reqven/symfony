@@ -81,4 +81,3 @@ class Places
         return $this->idClasse;
     }
 }
-

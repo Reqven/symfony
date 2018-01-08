@@ -110,4 +110,3 @@ class Intervenant
         return $this->id;
     }
 }
-

@@ -3,6 +3,7 @@
   <entity name="EcoleBundle\Entity\Classe" table="classe">
     <indexes>
       <index name="FK_classe_id_intervenant" columns="id_intervenant"/>
+      <index name="FK_classe_id_places" columns="id_places"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
@@ -17,5 +18,10 @@
         <join-column name="id_intervenant" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
+    <one-to-many field="idPlaces" target-entity="Places" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_places" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-many>
   </entity>
 </doctrine-mapping>
